@@ -3,7 +3,8 @@
  class QuoteCard extends StatelessWidget {
 
    final Quote quote;
-   QuoteCard({this.quote});
+   final Function delete;
+   QuoteCard({this.quote,this.delete});
 
    Widget build (BuildContext context) {
       return Card(
@@ -25,6 +26,12 @@
            color : Colors.grey[600]
          )),
          SizedBox(height: 30,),
+         FlatButton.icon(
+         onPressed: delete, 
+         padding: EdgeInsets.all(5),
+         label : Text('delete'),
+         icon: Icon(Icons.assignment_return_rounded),
+         )
       ],))
     );
    }

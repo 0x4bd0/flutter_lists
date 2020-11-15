@@ -36,18 +36,19 @@ class _QuoteListState extends State<QuoteList> {
       ),
       body : Column(
          mainAxisAlignment: MainAxisAlignment.start,
-         children: quotes.map((item) {
-          return quoteTemplate(item);
-        }).toList(),
+         children: quotes.map((item) => 
+         QuoteCard(quote: item,
+         delete : () {
+           this.setState(() {
+             quotes.remove(item);
+           });
+         }
+         )
+        ).toList(),
       )
     );
   }
 }
 
 
-  Widget quoteTemplate(quote){
-
-    return QuoteCard(quote: quote);
-
-  }
 
