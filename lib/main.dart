@@ -21,9 +21,34 @@ class _QuoteListState extends State<QuoteList> {
   List<Quote> quotes = [
   Quote(text : "What we think, we become", id : 1 ),
   Quote(text : "Tough times never last but tough people do", id : 2 ),
-  Quote(text : "Problems are not stop signs, they are guidelines", id : 1 ),
+  Quote(text : "Problems are not stop signs, they are guidelines", id : 3),
 
   ];
+
+
+  Widget quoteTemplate(quote){
+    return Card(
+      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child  : Padding(padding: EdgeInsets.all(15),
+      child: 
+        Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+         Text('${quote.id}',
+         style: TextStyle(
+           fontSize: 10,
+           color : Colors.grey[600]
+         )),
+         SizedBox(height: 10,),
+         Text(quote.text,
+         style: TextStyle(
+           fontSize: 10,
+           color : Colors.grey[600]
+         )),
+         SizedBox(height: 30,),
+      ],))
+    );
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +60,7 @@ class _QuoteListState extends State<QuoteList> {
       body : Column(
          mainAxisAlignment: MainAxisAlignment.start,
          children: quotes.map((item) {
-          return Text('${item.text}',
-          textAlign: TextAlign.right,
-          );
+          return quoteTemplate(item);
         }).toList(),
       )
     );
