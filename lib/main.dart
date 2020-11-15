@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './quote.dart';
 
 void main() {
   runApp(
@@ -17,10 +18,11 @@ class QuoteList extends StatefulWidget {
 class _QuoteListState extends State<QuoteList> {
   @override
 
-  List<String> quotes = [
-  "What we think, we become",
-  "Tough times never last but tough people do",
-  "Problems are not stop signs, they are guidelines"
+  List<Quote> quotes = [
+  Quote(text : "What we think, we become", id : 1 ),
+  Quote(text : "Tough times never last but tough people do", id : 2 ),
+  Quote(text : "Problems are not stop signs, they are guidelines", id : 1 ),
+
   ];
 
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class _QuoteListState extends State<QuoteList> {
       body : Column(
          mainAxisAlignment: MainAxisAlignment.start,
          children: quotes.map((item) {
-          return Text(item,
+          return Text('${item.text}',
           textAlign: TextAlign.right,
           );
         }).toList(),
